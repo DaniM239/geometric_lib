@@ -21,16 +21,16 @@ jobs:
 
     - name: Run rectangle tests
       run: |
-        python -m unittest rectangle.py -v
+        python -m unittest test_rectangle.py -v
 
     - name: Run square tests
       run: |
-        python -m unittest square.py -v
+        python -m unittest test_square.py -v
 
     - name: Run circle tests
       run: |
-        python -m unittest circle.py -v
+        python -m unittest test_circle.py -v
 
     - name: Run triangle tests
       run: |
-        python -m unittest triangle.py -v
+        python -m unittest test_triangle.py -v
