@@ -1,0 +1,36 @@
+name: Run Unit Tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.9', '3.10', '3.11']
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Run rectangle tests
+      run: |
+        python -m unittest rectangle.py -v
+
+    - name: Run square tests
+      run: |
+        python -m unittest square.py -v
+
+    - name: Run circle tests
+      run: |
+        python -m unittest circle.py -v
+
+    - name: Run triangle tests
+      run: |
+        python -m unittest triangle.py -v
